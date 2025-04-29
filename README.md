@@ -29,3 +29,12 @@ Problems:
 - GIMP had the Newsprint plugin, but back in 2007 it rendered the result
   in square-sized macroblocks which were visible after printing
 
+## Retrospective comment on 2025
+
+Donald Knuth solved the problem in 1987 properly. Alas, at 2007, I was an
+undergraduate computer science student who had not discovered Knuth's
+article. ;)
+
+Donald E. Knuth. 1987. Digital halftones by dot diffusion. ACM Trans. Graph. 6,
+4 (Oct. 1987), 245–273. https://doi.org/10.1145/35039.35040
+
