@@ -1,0 +1,44 @@
+Printable Halftonen parannus
+
+10.3.2013
+* Tällä hetkellä väritän sarjikset niin, että säädän ensin GIMPillä
+  tasaiset harmaasävyt: viiva yhdelle tasolle ja harmaasävyt toiselle.
+  Näin sarjiksesta saa myös nettiversion.
+  Erillinen harmaasävytaso ei kuitenkaan pelaa yhteen nykyisen plugarin
+  kanssa: harmaasävyalueiden reunat jäävät rasteroitumatta.
+
+  En oikeastaan halua kikkailla enää rasterikuvioiden kanssa.
+  Sikäli riittäisi seuraava ratkaisu:
+
+  * on 64 eri harmaasävyastetta vastaavat 8x8 pikselin harmaasävyruudut,
+    jotka sisältävät yhden "solun" rasterikuviota.
+
+  * jokaiselle rasteroitavalle pikselille (x,y) valitaan harmaasävyruutu
+    ja siitä pikseli seuraavasti:
+
+    * ruudun numero = pikselin harmaasävy / 4
+      ruudun koordinaatti x = pikselin koordinaatti % 8
+      ruudun koordinaatti y = pikselin koordinaatti % 8
+ 
+
+27 helmikuuta 2011
+
+* GIMP on varastoinut kuvadatan 64x64 pikselin laattoihin (tile).
+  Siksi tehokkain tapa siirtää kuvadataa GIMPin ja liitännäisen välillä
+  on tehdä se laatta kerrallaan. (ilmeisesti)
+  Nimittäin jos haluaa mielivaltaisen muotoisia alueita, GIMPin
+  täytyy parsia alue kokoon laatoista.
+
+* Niinpä kannattaakin UNOHTAA gimp_pixel_rgn* -käskyt
+  ja siirtyä käyttämään laattaiteraattoria!
+
+Mutta plugarin sisällä tarvitsemme silti result_image -tietorakennetta.
+
+! Toinenkin parannus: tehdään result_imageen (max_dot_width/2)+1 kokoiset reunat.
+  Tällöin ei tarvita reunallaolotarkistusta paint_dot:issa.
+
+Lähteet:
+
+http://www.gimp.org/docs/plug-in/sect-tiles.html
+
+

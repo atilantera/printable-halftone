@@ -1,0 +1,15 @@
+Printable Halftone: suorituskykytestit testi.jpg:llä
+
+Versio 1.0
+
+Koko  Laskenta  Siirto
+----------------------  
+   4    17.29     5.99
+   8    10.91     5.24
+  16     6.88     4.76
+
+
+Ajankäyttöanalyysi: kun kokoasetus = 8:
+paint_dot vie edistymismittarin suoritusajasta 20%
+
+Optimoi ensisijaisesti render2 #if 1 alta.
